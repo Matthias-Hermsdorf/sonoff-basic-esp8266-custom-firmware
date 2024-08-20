@@ -183,6 +183,9 @@ You could send messages to the board.
   * w → returns the current WiFi.status()
   * default → returns a command overview "on: 1, off: 2, reconnectWifi: r, WiFiStatus: w"
 
+## WiFi reconnect
+The WiFi Class provides a method: WiFi.setAutoReconnect(true); but that does not work as expected on my device. I added a keepWifiAlive() which is called in the loop and checks the current WiFi.status, compares it with the last and reconnects if it is not connected any more. If the WiFi Host is down for a while, the Sonoff will try to reconnect every 13s.
+
 # FAQ
 
 ### 1. Does it work with another Sonoff version?
